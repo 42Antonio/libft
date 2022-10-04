@@ -6,7 +6,7 @@
 /*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 17:07:31 by aclaros-          #+#    #+#             */
-/*   Updated: 2022/10/01 12:02:37 by aclaros-         ###   ########.fr       */
+/*   Updated: 2022/10/04 14:12:35 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int		ft_isprint(int c);
 int		ft_strncmp(const char	*s1, const char	*s2, size_t n);
 char	*ft_strdup(const char	*s1);
 size_t	ft_strlen(const char	*s);
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
 size_t	ft_strlcpy(char	*dst, const char *src, size_t dstsize);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
