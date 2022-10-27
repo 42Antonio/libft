@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aclaros- <aclaros-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 12:09:03 by aclaros-          #+#    #+#             */
-/*   Updated: 2022/10/11 11:56:23 by aclaros-         ###   ########.fr       */
+/*   Created: 2022/10/21 12:01:41 by aclaros-          #+#    #+#             */
+/*   Updated: 2022/10/21 12:02:21 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	*upcopy;
-
-	upcopy = (char *)malloc(ft_strlen(s1) + 1);
-	if (!(upcopy))
-		return (0);
-	ft_memcpy(upcopy, s1, ft_strlen(s1) + 1);
-	return (upcopy);
+	if (!lst || !f)
+		return ;
+	while (lst)
+	{
+		f(lst->content);
+		lst = lst->next;
+	}
 }

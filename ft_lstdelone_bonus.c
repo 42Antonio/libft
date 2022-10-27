@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aclaros- <aclaros-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 12:09:03 by aclaros-          #+#    #+#             */
-/*   Updated: 2022/10/11 11:56:23 by aclaros-         ###   ########.fr       */
+/*   Created: 2022/10/21 11:57:47 by aclaros-          #+#    #+#             */
+/*   Updated: 2022/10/21 11:59:10 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	char	*upcopy;
-
-	upcopy = (char *)malloc(ft_strlen(s1) + 1);
-	if (!(upcopy))
-		return (0);
-	ft_memcpy(upcopy, s1, ft_strlen(s1) + 1);
-	return (upcopy);
+	if (!lst)
+		return ;
+	del(lst->content);
+	free(lst);
 }

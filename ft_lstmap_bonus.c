@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antonio <antonio@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 11:51:42 by aclaros-          #+#    #+#             */
-/*   Updated: 2022/10/26 12:25:32 by antonio          ###   ########.fr       */
+/*   Created: 2022/10/22 10:57:35 by aclaros-          #+#    #+#             */
+/*   Updated: 2022/10/26 12:17:27 by antonio          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t n)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	char	*dst1;
-	char	*src1;
+	t_list	*sol;
+	t_list	*tmp;
 
-	dst1 = (char *)dst;
-	src1 = (char *)src;
-	if (dst == NULL && src == NULL)
+	if (!lst || !f)
 		return (NULL);
-	if (dst < src)
-		while (n--)
-			*dst1++ = *src1++;
-	else
-		while (n--)
-			((unsigned char *)dst)[n] = ((unsigned char *)src)[n];
-	return (dst);
+	sol = NULL;
+	while (lst)
+	{
+		tmp = ft_lstnew(f(lst->content));
+		if (!tmp)
+		{
+			ft_lstclear(&sol, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&sol, tmp);
+		lst = lst->next;
+	}
+	return (sol);
 }

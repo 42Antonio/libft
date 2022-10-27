@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aclaros- <aclaros-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 12:09:03 by aclaros-          #+#    #+#             */
-/*   Updated: 2022/10/11 11:56:23 by aclaros-         ###   ########.fr       */
+/*   Created: 2022/10/21 11:44:57 by aclaros-          #+#    #+#             */
+/*   Updated: 2022/10/21 11:47:28 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_lstsize(t_list *lst)
 {
-	char	*upcopy;
+	t_list	*current;
+	int		i;
 
-	upcopy = (char *)malloc(ft_strlen(s1) + 1);
-	if (!(upcopy))
-		return (0);
-	ft_memcpy(upcopy, s1, ft_strlen(s1) + 1);
-	return (upcopy);
+	i = 0;
+	current = lst;
+	while (current)
+	{
+		current = current->next;
+		i++;
+	}
+	return (i);
 }

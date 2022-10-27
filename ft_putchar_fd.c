@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aclaros- <aclaros-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aclaros- <aclaros-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/30 12:09:03 by aclaros-          #+#    #+#             */
-/*   Updated: 2022/10/11 11:56:23 by aclaros-         ###   ########.fr       */
+/*   Created: 2022/10/18 14:14:37 by aclaros-          #+#    #+#             */
+/*   Updated: 2022/10/18 15:22:07 by aclaros-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include	"libft.h"
 
-char	*ft_strdup(const char *s1)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*upcopy;
-
-	upcopy = (char *)malloc(ft_strlen(s1) + 1);
-	if (!(upcopy))
-		return (0);
-	ft_memcpy(upcopy, s1, ft_strlen(s1) + 1);
-	return (upcopy);
+	write(fd, &c, 1);
 }
